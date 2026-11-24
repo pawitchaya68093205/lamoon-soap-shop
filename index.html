@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ละมุน — Handmade Soap</title>
+<meta name="description" content="สบู่แฮนด์เมด กลิ่นหอมละมุน ดูแลผิวในทุกวัน">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600&family=Prompt:wght@300;400;500;600&display=swap');
+:root{--cream:#f7f3eb;--paper:#fffdf8;--ink:#39362f;--muted:#827d72;--sage:#8b9276;--line:#e8e1d5;--accent:#b77c5b}
+*{box-sizing:border-box}body{margin:0;background:var(--cream);color:var(--ink);font-family:'Prompt',sans-serif;font-weight:300}
+button,input,textarea,select{font:inherit}button{cursor:pointer}
+header{height:76px;padding:0 7%;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);background:#f9f6ef;position:sticky;top:0;z-index:5}
+.logo{font-family:'Kanit';font-size:27px;letter-spacing:3px;font-weight:500}.logo small{display:block;font:10px 'Prompt';letter-spacing:3px;color:var(--muted);margin-top:-6px}
+nav{display:flex;gap:28px;font-size:14px}nav a{color:inherit;text-decoration:none}.cartbtn{border:1px solid var(--ink);background:transparent;padding:9px 16px;border-radius:30px;font-size:13px}
+.hero{padding:66px 7% 58px;display:grid;grid-template-columns:1.02fr .98fr;gap:5%;align-items:center;max-width:1400px;margin:auto}
+.eyebrow{color:var(--accent);letter-spacing:3px;font-size:11px;font-weight:500}.hero h1{font-family:'Kanit';font-weight:400;font-size:clamp(38px,5vw,66px);line-height:1.18;margin:17px 0}.hero p{color:var(--muted);line-height:2;max-width:480px;font-size:15px}.primary{background:var(--ink);color:white;border:0;border-radius:3px;padding:13px 25px;margin-top:15px}.hero-art{min-height:360px;background:#e9e2d5;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.hero-art:before,.hero-art:after{content:"";position:absolute;border:1px solid #c9bca8;border-radius:50%;width:290px;height:290px}.hero-art:after{width:360px;height:360px}
+.bigsoap{width:190px;height:235px;border-radius:22px 22px 28px 28px;background:linear-gradient(135deg,#e5d4b7,#c8b28f);box-shadow:20px 24px 35px #8c7c6533;transform:rotate(-8deg);z-index:1;display:flex;align-items:center;justify-content:center;text-align:center;color:#6e604c;letter-spacing:3px;font-size:17px;line-height:1.7;border:1px solid #bba889}
+.bigsoap:before{content:"";position:absolute;top:15px;left:15px;right:15px;bottom:15px;border:1px solid #bba889;border-radius:15px}
+.section{padding:55px 7%;max-width:1400px;margin:auto}.sectionhead{text-align:center;margin-bottom:32px}.sectionhead h2{font:400 34px 'Kanit';margin:7px}.sectionhead p{color:var(--muted);font-size:14px}
+.products{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:25px;max-width:850px;margin:auto}
+.product{background:var(--paper);padding:14px;border:1px solid var(--line)}.productpic{height:245px;display:flex;align-items:center;justify-content:center;background:#eee8dc;position:relative;overflow:hidden}
+.soap{width:135px;height:165px;border-radius:18px 18px 23px 23px;display:flex;align-items:center;justify-content:center;text-align:center;font-size:13px;letter-spacing:2px;line-height:1.5;box-shadow:12px 18px 24px #54442a22;transform:rotate(-5deg);border:1px solid #ffffff88}
+.soap.oat{background:linear-gradient(140deg,#e9d9bd,#c9b18d);color:#766349}.soap.rose{background:linear-gradient(140deg,#e6c9bd,#c58f7d);color:#80594f}
+.productinfo{padding:17px 7px 5px}.sku{font-size:10px;letter-spacing:2px;color:var(--muted)}.product h3{font:400 22px 'Kanit';margin:5px 0}.desc{font-size:13px;color:var(--muted);min-height:42px}.buyrow{display:flex;justify-content:space-between;align-items:center;margin-top:15px}.price{font-weight:500;font-size:17px}.add{background:var(--sage);border:0;color:white;padding:9px 16px;border-radius:2px;font-size:13px}
+.note{margin:50px auto 0;max-width:850px;padding:25px;background:#ece9df;text-align:center;color:#6d6a5f;font-size:13px;line-height:2}
+footer{background:#e9e3d8;padding:30px 7%;text-align:center;color:var(--muted);font-size:12px;letter-spacing:1px}
+.overlay{display:none;position:fixed;inset:0;background:#25231f88;z-index:10;justify-content:flex-end}.overlay.open{display:flex}.drawer{background:var(--paper);width:min(470px,100%);height:100%;padding:25px;overflow:auto}.drawerhead{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line);padding-bottom:15px}.drawer h2{font:400 26px 'Kanit';margin:0}.close{border:0;background:none;font-size:25px}.cartline{display:grid;grid-template-columns:1fr auto;gap:10px;padding:16px 0;border-bottom:1px solid var(--line);font-size:14px}.qty{display:flex;gap:8px;align-items:center}.qty button{border:1px solid var(--line);background:white;width:25px;height:25px}.total{display:flex;justify-content:space-between;padding:20px 0;font-weight:500}.formgrid{display:grid;gap:10px}.formgrid input,.formgrid textarea{width:100%;padding:11px;border:1px solid var(--line);background:white;border-radius:2px}.formgrid label{font-size:12px;color:var(--muted)}.full{width:100%;margin-top:12px}.empty{color:var(--muted);padding:30px 0;text-align:center;font-size:14px}.success{display:none;background:#edf1e8;padding:15px;margin-top:15px;font-size:13px;line-height:1.8}
+.admin{max-width:850px;margin:35px auto;padding:25px;background:var(--paper);border:1px solid var(--line)}.admin h3{font:400 23px 'Kanit'}.admin p{font-size:13px;color:var(--muted);line-height:1.8}.order{padding:12px;border-bottom:1px solid var(--line);font-size:13px}
+@media(max-width:700px){header{padding:0 5%;height:66px}nav{display:none}.hero{grid-template-columns:1fr;padding:45px 6% 35px;gap:28px}.hero-art{min-height:280px}.section{padding:42px 6%}.products{gap:12px}.product{padding:8px}.productpic{height:175px}.soap{width:105px;height:130px}.product h3{font-size:18px}.desc{font-size:11px}.add{padding:8px 10px}.bigsoap{transform:scale(.85) rotate(-8deg)}}
+</style>
+</head>
+<body>
+<header>
+  <div class="logo">ละมุน<small>HANDMADE SOAP</small></div>
+  <nav><a href="#home">หน้าแรก</a><a href="#products">สินค้า</a><a href="#about">เกี่ยวกับเรา</a></nav>
+  <button class="cartbtn" onclick="openCart()">ตะกร้า (<span id="cartCount">0</span>)</button>
+</header>
+<main>
+<section class="hero" id="home">
+  <div><div class="eyebrow">SIMPLE CARE, EVERY DAY</div><h1>ความละมุน<br>เริ่มต้นได้ทุกวัน</h1><p>สบู่แฮนด์เมดที่ตั้งใจทำในทุกก้อน คัดสรรส่วนผสมและกลิ่นหอมอ่อน ๆ เพื่อเติมช่วงเวลาธรรมดาให้กลายเป็นช่วงเวลาที่พิเศษ</p><button class="primary" onclick="document.querySelector('#products').scrollIntoView({behavior:'smooth'})">เลือกชมสินค้า</button></div>
+  <div class="hero-art"><div class="bigsoap">LAMOON<br>SOAP</div></div>
+</section>
+<section class="section" id="products">
+  <div class="sectionhead"><div class="eyebrow">OUR COLLECTION</div><h2>เลือกความละมุนที่ใช่</h2><p>สบู่ก้อนแฮนด์เมด คัดสรรมาเพื่อวันสบาย ๆ ของคุณ</p></div>
+  <div class="products" id="productList"></div>
+  <div class="note" id="about">ทุกก้อนทำด้วยความใส่ใจ · เหมาะสำหรับเป็นของขวัญหรือใช้ดูแลตัวเอง<br>หมายเหตุ: รายละเอียดสินค้าและราคาเป็นข้อมูลตัวอย่าง สามารถแก้ไขได้ในไฟล์ products.csv</div>
+</section>
+<section class="admin" id="packing">
+  <h3>รายการเตรียมจัดส่ง</h3><p>ส่วนนี้ใช้ตรวจสอบคำสั่งซื้อและจัดเตรียมสินค้า เมื่อมีลูกค้ากดสั่งซื้อ รายการจะปรากฏในหน้านี้ (ข้อมูลจะอยู่ในเบราว์เซอร์เครื่องนี้สำหรับการสาธิต)</p>
+  <div id="orders"><div class="empty">ยังไม่มีคำสั่งซื้อ</div></div>
+</section>
+</main>
+<footer>ละมุน HANDMADE SOAP · MADE WITH CARE</footer>
+<div class="overlay" id="overlay" onclick="if(event.target===this)closeCart()">
+ <div class="drawer">
+  <div class="drawerhead"><h2>ตะกร้าสินค้า</h2><button class="close" onclick="closeCart()">×</button></div>
+  <div id="cartItems"></div><div class="total"><span>ยอดรวม</span><span id="total">฿0</span></div>
+  <h2 style="font-size:22px;margin:8px 0 14px">ข้อมูลสำหรับจัดส่ง</h2>
+  <form class="formgrid" onsubmit="checkout(event)">
+   <label>ชื่อ-นามสกุล</label><input id="customer" required placeholder="ชื่อผู้รับ">
+   <label>เบอร์โทรศัพท์</label><input id="phone" required type="tel" placeholder="08X-XXX-XXXX">
+   <label>ที่อยู่จัดส่ง</label><textarea id="address" required rows="3" placeholder="บ้านเลขที่ ถนน ตำบล อำเภอ จังหวัด รหัสไปรษณีย์"></textarea>
+   <label>หมายเหตุ (ถ้ามี)</label><input id="memo" placeholder="รายละเอียดเพิ่มเติม">
+   <button class="primary full" type="submit">ยืนยันคำสั่งซื้อ</button>
+  </form>
+  <div class="success" id="success"></div>
+ </div>
+</div>
+<script>
+const products = [
+ {sku:'SOAP-001',name:'โอ๊ตมิลค์',subtitle:'OAT MILK SOAP',description:'กลิ่นอ่อนโยน โทนอบอุ่น เหมาะกับช่วงเวลาผ่อนคลาย',price:89,kind:'oat'},
+ {sku:'SOAP-002',name:'โรสการ์เดน',subtitle:'ROSE GARDEN',description:'กลิ่นกุหลาบละมุน เติมความสดชื่นให้วันของคุณ',price:99,kind:'rose'}
+];
+let cart = {};
+let orders = JSON.parse(localStorage.getItem('lamoonOrders')||'[]');
+const money = n=>'฿'+Number(n).toLocaleString('th-TH');
+function renderProducts(){
+ document.getElementById('productList').innerHTML=products.map(p=>`<article class="product"><div class="productpic"><div class="soap ${p.kind}">${p.subtitle}</div></div><div class="productinfo"><div class="sku">${p.sku}</div><h3>${p.name}</h3><div class="desc">${p.description}</div><div class="buyrow"><span class="price">${money(p.price)}</span><button class="add" onclick="add('${p.sku}')">เพิ่มลงตะกร้า +</button></div></div></article>`).join('');
+}
+function add(sku){cart[sku]=(cart[sku]||0)+1;renderCart();document.getElementById('cartCount').textContent=Object.values(cart).reduce((a,b)=>a+b,0)}
+function openCart(){document.getElementById('overlay').classList.add('open');renderCart()}
+function closeCart(){document.getElementById('overlay').classList.remove('open')}
+function change(sku,delta){cart[sku]=(cart[sku]||0)+delta;if(cart[sku]<=0)delete cart[sku];renderCart();document.getElementById('cartCount').textContent=Object.values(cart).reduce((a,b)=>a+b,0)}
+function renderCart(){
+ const chosen=products.filter(p=>cart[p.sku]);const el=document.getElementById('cartItems');
+ el.innerHTML=chosen.length?chosen.map(p=>`<div class="cartline"><div><b>${p.name}</b><br><small>${money(p.price)} / ก้อน</small></div><div class="qty"><button type="button" onclick="change('${p.sku}',-1)">−</button>${cart[p.sku]}<button type="button" onclick="change('${p.sku}',1)">+</button></div></div>`).join(''):'<div class="empty">ยังไม่มีสินค้าในตะกร้า</div>';
+ document.getElementById('total').textContent=money(chosen.reduce((s,p)=>s+p.price*cart[p.sku],0));
+}
+function checkout(e){
+ e.preventDefault();if(!Object.keys(cart).length){alert('กรุณาเลือกสินค้าก่อน');return}
+ const items=products.filter(p=>cart[p.sku]).map(p=>({sku:p.sku,name:p.name,qty:cart[p.sku],price:p.price}));
+ const order={id:'LM'+Date.now().toString().slice(-7),date:new Date().toLocaleString('th-TH'),customer:document.getElementById('customer').value,phone:document.getElementById('phone').value,address:document.getElementById('address').value,memo:document.getElementById('memo').value,items,total:items.reduce((s,p)=>s+p.qty*p.price,0)};
+ orders.unshift(order);localStorage.setItem('lamoonOrders',JSON.stringify(orders));cart={};document.getElementById('cartCount').textContent='0';renderCart();renderOrders();
+ const s=document.getElementById('success');s.style.display='block';s.innerHTML=`<b>รับคำสั่งซื้อแล้ว · ${order.id}</b><br>บันทึกรายการไว้ในหน้ารายการเตรียมจัดส่งแล้ว สำหรับการสาธิตนี้`;
+}
+function renderOrders(){
+ const el=document.getElementById('orders');if(!orders.length){el.innerHTML='<div class="empty">ยังไม่มีคำสั่งซื้อ</div>';return}
+ el.innerHTML=orders.map(o=>`<div class="order"><b>คำสั่งซื้อ ${o.id}</b> · ${o.date}<br>ผู้รับ: ${escapeHtml(o.customer)} · ${escapeHtml(o.phone)}<br>ที่อยู่: ${escapeHtml(o.address)}<br>${o.items.map(i=>`${i.name} × ${i.qty}`).join(' / ')}<br><b>รวม ${money(o.total)}</b><br><button class="add" style="margin-top:8px" onclick="printOrder('${o.id}')">พิมพ์ใบจัดส่ง / ใบแพ็กสินค้า</button></div>`).join('');
+}
+function escapeHtml(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function printOrder(id){
+ const o=orders.find(x=>x.id===id);const w=window.open('','_blank');if(!w){alert('กรุณาอนุญาตป๊อปอัปเพื่อพิมพ์');return}
+ w.document.write(`<html lang="th"><meta charset="UTF-8"><title>ใบจัดส่ง ${o.id}</title><body style="font-family:Arial,sans-serif;padding:30px"><h2>ละมุน · ใบจัดส่ง / ใบแพ็กสินค้า</h2><p>เลขที่คำสั่งซื้อ: ${o.id}<br>วันที่: ${o.date}</p><hr><h3>ผู้รับ</h3><p>${escapeHtml(o.customer)}<br>${escapeHtml(o.phone)}<br>${escapeHtml(o.address)}</p><h3>รายการสินค้า</h3><ul>${o.items.map(i=>`<li>${i.name} (${i.sku}) จำนวน ${i.qty} ก้อน</li>`).join('')}</ul><h3>ยอดรวม ${money(o.total)}</h3><p>หมายเหตุ: ${escapeHtml(o.memo||'-')}</p><hr><p>ผู้แพ็กสินค้า __________________</p><script>window.onload=()=>window.print()<\/script></body></html>`);w.document.close();
+}
+renderProducts();renderCart();renderOrders();
+</script>
+</body></html>
